@@ -82,7 +82,7 @@ const ContactInfo = () => {
   return (
     <section className="relative py-20 bg-zinc-900">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {contacts.map((contact, index) => (
             <motion.div
               key={index}
@@ -328,11 +328,11 @@ const FAQSection = () => {
     },
     {
       question: "Zijn mijn goederen verzekerd tijdens transport?",
-      answer: "Ja, al onze transporten zijn standaard verzekerd. Afhankelijk van het pakket is dit tot €50.000 of meer. Neem contact met ons op voor specifieke verzekeringswensen.",
+      answer: "Ja, al onze transporten zijn standaard CMR-verzekerd. Extra verzekering is mogelijk op aanvraag. Neem contact met ons op voor specifieke verzekeringswensen.",
     },
     {
       question: "Kan ik mijn zending volgen?",
-      answer: "Absoluut! Via ons klantenportal heeft u 24/7 inzicht in de status van uw zending. U ontvangt ook automatische updates bij belangrijke mijlpalen.",
+      answer: "Absoluut! U ontvangt updates over de status van uw zending. Bij belangrijke mijlpalen ontvangt u automatisch bericht.",
     },
     {
       question: "Leveren jullie ook in het weekend?",

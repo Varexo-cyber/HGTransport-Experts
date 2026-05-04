@@ -67,9 +67,9 @@ const StorySection = () => {
             </h2>
             <div className="space-y-4 text-gray-400 leading-relaxed">
               <p>
-                HG Transport Experts begon in 2010 met één simpel idee: transport moet 
-                eenvoudig, betrouwbaar en persoonlijk zijn. Wat begon als een klein 
-                familiebedrijf met één vrachtwagen is uitgegroeid tot een toonaangevende 
+                HG Experts B.V. begon in 2024 met één simpel idee: transport moet 
+                eenvoudig, betrouwbaar en persoonlijk zijn. Met focus op kwaliteit 
+                en persoonlijke service zijn wij uitgegroeid tot een betrouwbare 
                 logistieke dienstverlener.
               </p>
               <p>
@@ -79,10 +79,9 @@ const StorySection = () => {
                 verpakking en een persoonlijke aanpak.
               </p>
               <p>
-                Vandaag de dag verzorgen we jaarlijks meer dan 15.000 zendingen 
-                voor meer dan 500 tevreden klanten. En we groeien nog steeds, 
-                maar wel met onze kernwaarden: kwaliteit, betrouwbaarheid en 
-                persoonlijke service.
+                Wij verzorgen transport voor diverse klanten in Nederland en België. 
+                Met onze kernwaarden — kwaliteit, betrouwbaarheid en 
+                persoonlijke service — groeien wij gestaag door.
               </p>
             </div>
           </motion.div>
@@ -106,16 +105,16 @@ const StorySection = () => {
             <div className="absolute -bottom-6 -left-6 right-6 bg-zinc-800 rounded-2xl p-6 shadow-2xl">
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <div className="text-3xl font-bold text-yellow-400">2010</div>
+                  <div className="text-3xl font-bold text-yellow-400">2024</div>
                   <div className="text-xs text-gray-400">Oprichting</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-yellow-400">500+</div>
-                  <div className="text-xs text-gray-400">Klanten</div>
+                  <div className="text-3xl font-bold text-yellow-400">NL</div>
+                  <div className="text-xs text-gray-400">& België</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-yellow-400">15K+</div>
-                  <div className="text-xs text-gray-400">Zendingen/jaar</div>
+                  <div className="text-3xl font-bold text-yellow-400">100%</div>
+                  <div className="text-xs text-gray-400">Inzet</div>
                 </div>
               </div>
             </div>
@@ -229,7 +228,7 @@ const TeamSection = () => {
             Ons Team
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            De mensen achter <span className="text-yellow-400">HG Transport</span>
+            De mensen achter <span className="text-yellow-400">HG Experts</span>
           </h2>
         </motion.div>
 
@@ -341,7 +340,7 @@ const CTASection = () => {
             Wordt ook een tevreden klant
           </h2>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Ontdek zelf waarom meer dan 500 bedrijven kiezen voor HG Transport Experts.
+            Ontdek zelf waarom bedrijven kiezen voor HG Experts B.V.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link

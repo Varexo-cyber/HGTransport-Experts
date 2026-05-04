@@ -7,7 +7,7 @@ import HelpWidget from "@/app/components/HelpWidget";
 
 export const metadata: Metadata = {
   title: "HG Transport Experts | Eenvoud in Internationaal Transport",
-  description: "Betrouwbaar fiets- en autotransport in Nederland en België. End-to-end logistieke oplossingen met klantenportal en track & trace.",
+  description: "Betrouwbaar fiets- en autotransport in Nederland en België. End-to-end logistieke oplossingen met track & trace.",
   keywords: "transport, fiets transport, auto transport, warehousing, logistiek, nederland, belgie",
   icons: {
     icon: [

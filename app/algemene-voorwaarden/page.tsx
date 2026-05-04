@@ -48,7 +48,7 @@ export default function TermsPage() {
                 In deze algemene voorwaarden wordt verstaan onder:
               </p>
               <ul className="space-y-2 text-gray-400">
-                <li><strong className="text-white">Opdrachtgever:</strong> De natuurlijke of rechtspersoon die opdracht geeft tot het verrichten van diensten door HG Transport Experts.</li>
+                <li><strong className="text-white">Opdrachtgever:</strong> De natuurlijke of rechtspersoon die opdracht geeft tot het verrichten van diensten door HG Experts B.V.</li>
                 <li><strong className="text-white">Opdrachtnemer:</strong> HG Experts B.V., gevestigd te Rotterdam, ingeschreven bij de Kamer van Koophandel onder nummer 95814426.</li>
                 <li><strong className="text-white">Diensten:</strong> Alle werkzaamheden die door de opdrachtnemer worden verricht ten behoeve van de opdrachtgever.</li>
                 <li><strong className="text-white">Goederen:</strong> Alle zaken die worden vervoerd of opgeslagen.</li>
@@ -61,7 +61,7 @@ export default function TermsPage() {
               <h2 className="text-2xl font-bold text-white mb-4">Artikel 2 - Toepasselijkheid</h2>
               <p className="text-gray-400 leading-relaxed">
                 Deze algemene voorwaarden zijn van toepassing op alle aanbiedingen, offertes, 
-                overeenkomsten en leveringen van diensten door HG Transport Experts. Afwijkingen 
+                overeenkomsten en leveringen van diensten door HG Experts B.V. Afwijkingen 
                 van deze voorwaarden zijn slechts geldig indien deze uitdrukkelijk schriftelijk 
                 zijn overeengekomen.
               </p>
@@ -83,7 +83,7 @@ export default function TermsPage() {
               <h2 className="text-2xl font-bold text-white mb-4">Artikel 4 - Totstandkoming overeenkomst</h2>
               <p className="text-gray-400 leading-relaxed">
                 De overeenkomst komt tot stand door schriftelijke (digitale) bevestiging van 
-                de opdracht door HG Transport Experts, of door feitelijke aanvang van de werkzaamheden. 
+                de opdracht door HG Experts B.V., of door feitelijke aanvang van de werkzaamheden. 
                 Wijzigingen in de opdracht dienen schriftelijk te worden bevestigd.
               </p>
             </div>
@@ -104,8 +104,8 @@ export default function TermsPage() {
             <div className="bg-zinc-900/50 rounded-2xl p-8 border border-white/5">
               <h2 className="text-2xl font-bold text-white mb-4">Artikel 6 - Aansprakelijkheid</h2>
               <p className="text-gray-400 leading-relaxed mb-4">
-                De aansprakelijkheid van HG Transport Experts is beperkt tot directe schade 
-                aan de vervoerde goederen, met een maximum van €50.000 per zending, tenzij 
+                De aansprakelijkheid van HG Experts B.V. is beperkt tot directe schade 
+                aan de vervoerde goederen, volgens de wettelijke CMR-aansprakelijkheid, tenzij 
                 schriftelijk een hoger bedrag is overeengekomen. Wij zijn niet aansprakelijk voor:
               </p>
               <ul className="space-y-2 text-gray-400">
@@ -120,7 +120,7 @@ export default function TermsPage() {
             <div className="bg-zinc-900/50 rounded-2xl p-8 border border-white/5">
               <h2 className="text-2xl font-bold text-white mb-4">Artikel 7 - Verzekering</h2>
               <p className="text-gray-400 leading-relaxed">
-                HG Transport Experts is verzekerd voor transportrisico's volgens de CMR-verzekering. 
+                HG Experts B.V. is verzekerd voor transportrisico's volgens de CMR-verzekering. 
                 Voor extra verzekerde waarde kan een toeslag worden berekend. Opdrachtgever dient 
                 bijzondere waarde van goederen vooraf te melden.
               </p>

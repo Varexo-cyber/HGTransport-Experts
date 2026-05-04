@@ -60,7 +60,7 @@ const Hero = () => {
             <span className="px-4 py-1.5 rounded-full bg-yellow-500/10 border border-yellow-400/30 text-yellow-400 text-sm font-medium backdrop-blur-sm">
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
-                Transport Experts sinds 2010
+                Transport Experts sinds 2024
               </span>
             </span>
           </motion.div>
@@ -87,8 +87,8 @@ const Hero = () => {
             variants={fadeInUp}
             className="text-gray-400 text-lg mb-8 max-w-xl"
           >
-            Betrouwbaar fiets- en autotransport in Nederland en België. 
-            Naadloze logistieke oplossingen, volledig end-to-end.
+            Van fiets- en autotransport tot warehousing. 
+            Wij bieden alles voor uw transportbehoeften.
           </motion.p>
 
           <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
@@ -190,14 +190,6 @@ const Services = () => {
       description: "Veilige, strategische en schaalbare opslagoplossingen voor uw goederen met 24/7 monitoring.",
       features: ["24/7 Monitoring", "Korte & lange termijn", "Picking & packing"],
       image: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80",
-      color: "amber",
-    },
-    {
-      icon: Package,
-      title: "Klantenportal",
-      description: "Eenvoudig zendingen aanmelden, labels printen en alle verzendingen volgen via track & trace in realtime.",
-      features: ["Realtime tracking", "Label printing", "Orderbeheer"],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
       color: "amber",
     },
   ];
@@ -307,17 +299,12 @@ const WhyChooseUs = () => {
     {
       icon: TrendingUp,
       title: "Track & Trace",
-      description: "Volg uw zendingen realtime via ons klantenportal, 24/7 beschikbaar.",
+      description: "Volg uw zendingen realtime via ons tracking systeem, 24/7 beschikbaar.",
     },
     {
       icon: Users,
       title: "Persoonlijke service",
       description: "Dedicated account managers voor zakelijke klanten en persoonlijke ondersteuning.",
-    },
-    {
-      icon: Star,
-      title: "14 jaar ervaring",
-      description: "Meer dan 14 jaar ervaring in internationaal transport en logistiek.",
     },
   ];
 
@@ -373,21 +360,21 @@ const WhyChooseUs = () => {
 const Testimonials = () => {
   const testimonials = [
     {
-      name: "Jan de Vries",
-      company: "BikeShop Amsterdam",
-      text: "HG Transport levert al 3 jaar betrouwbaar onze fietsen bij klanten. Snel, netjes en altijd op tijd.",
+      name: "Teun S.",
+      company: "Fietsenwinkel Utrecht",
+      text: "Zeer tevreden over het transport van onze fietsen. Snelle levering en goede communicatie.",
       rating: 5,
     },
     {
-      name: "Maria Jansen",
-      company: "AutoDeal Rotterdam",
-      text: "Professioneel autotransport voor onze occasions. De track & trace functie geeft ons en onze klanten gemoedsrust.",
+      name: "Lisa B.",
+      company: "Autobedrijf Den Haag",
+      text: "Professioneel autotransport voor onze occasions. Alles netjes op tijd geleverd.",
       rating: 5,
     },
     {
-      name: "Peter Bakker",
-      company: "Logistics BV",
-      text: "De warehousing oplossingen van HG Transport zijn essentieel voor onze operationele efficiency.",
+      name: "Mark V.",
+      company: "Logistiek Partner",
+      text: "Betrouwbare partner voor onze transportbehoeften. Aan te bevelen.",
       rating: 5,
     },
   ];

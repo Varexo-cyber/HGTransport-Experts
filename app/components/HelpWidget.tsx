@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     question: "Hoe kan ik mijn zending volgen?",
-    answer: "U ontvangt een track & trace link zodra uw zending is opgehaald. Via ons klantenportal kunt u realtime de status bekijken."
+    answer: "U ontvangt een track & trace link zodra uw zending is opgehaald. U kunt realtime de status bekijken."
   },
   {
     question: "Wat kost transport?",

@@ -45,7 +45,7 @@ export default function PrivacyPage() {
             <div className="bg-zinc-900/50 rounded-2xl p-8 border border-white/5">
               <h2 className="text-2xl font-bold text-white mb-4">1. Inleiding</h2>
               <p className="text-gray-400 leading-relaxed">
-                HG Transport Experts respecteert uw privacy en zorgt ervoor dat de persoonlijke 
+                HG Experts B.V. respecteert uw privacy en zorgt ervoor dat de persoonlijke 
                 informatie die u ons verschaft vertrouwelijk wordt behandeld. In deze privacy policy 
                 informeren wij u over hoe wij met uw gegevens omgaan.
               </p>

@@ -40,7 +40,7 @@ const PageHeader = () => {
             Complete <span className="text-yellow-400">logistieke</span> oplossingen
           </h1>
           <p className="text-zinc-300 text-lg">
-            Van fiets- en autotransport tot warehousing en klantenportal. 
+            Van fiets- en autotransport tot warehousing. 
             Wij bieden alles voor uw transportbehoeften.
           </p>
         </motion.div>
@@ -59,7 +59,7 @@ const MainServices = () => {
       description: "Als specialist in fietslogistiek bieden wij complete end-to-end oplossingen voor fietsen van alle merken en maten. Van kleine reparatiezendingen tot grote voorraadleveringen.",
       features: [
         "Alle fietsmerken en types",
-        "Verzekerd transport tot €50.000",
+        "Volledig verzekerd transport",
         "Track & trace in realtime",
         "Professionele verpakking",
         "Dealer netwerk door NL & BE",
@@ -99,22 +99,6 @@ const MainServices = () => {
       ],
       image: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80",
       color: "zinc",
-    },
-    {
-      icon: Package,
-      title: "Klantenportal",
-      subtitle: "Altijd inzicht en controle",
-      description: "Via ons geavanceerde klantenportal heeft u 24/7 toegang tot al uw zendingen. Meld eenvoudig nieuwe zendingen aan, print labels en volg alles realtime via track & trace.",
-      features: [
-        "24/7 online toegang",
-        "Realtime track & trace",
-        "Label printing",
-        "Orderbeheer & historie",
-        "API koppeling mogelijk",
-        "Multi-user accounts",
-      ],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-      color: "cyan",
     },
   ];
 
@@ -197,7 +181,7 @@ const ProcessSection = () => {
     {
       number: "01",
       title: "Aanmelden",
-      description: "Meld uw zending eenvoudig aan via ons klantenportal of per email/telefoon.",
+      description: "Meld uw zending eenvoudig aan via email of telefoon.",
     },
     {
       number: "02",
@@ -413,7 +397,7 @@ const CTASection = () => {
             Start met HG Transport
           </h2>
           <p className="text-zinc-300 text-lg mb-8 max-w-2xl mx-auto">
-            Ontdek zelf waarom meer dan 500 bedrijven ons vertrouwen voor hun transport.
+            Ontdek zelf waarom bedrijven ons vertrouwen voor hun transport.
           </p>
           <Link
             href="/contact"
