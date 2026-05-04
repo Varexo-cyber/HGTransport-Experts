@@ -39,7 +39,7 @@ const PageHeader = () => {
             Transport met <span className="text-yellow-400">passie</span>
           </h1>
           <p className="text-gray-400 text-lg">
-            Al meer dan 14 jaar de betrouwbare partner voor fiets- en autotransport 
+            Sinds 2024 de betrouwbare partner voor fiets- en autotransport 
             in Nederland en België.
           </p>
         </motion.div>
@@ -265,11 +265,9 @@ const TeamSection = () => {
 // Achievements Section
 const AchievementsSection = () => {
   const stats = [
-    { icon: Truck, value: "15.000+", label: "Zendingen per jaar", suffix: "" },
-    { icon: Users, value: "500", label: "Tevreden klanten", suffix: "+" },
     { icon: Globe, value: "2", label: "Landen actief", suffix: "" },
-    { icon: Star, value: "99", label: "% klanttevredenheid", suffix: "%" },
-    { icon: Clock, value: "14", label: "Jaar ervaring", suffix: "+" },
+    { icon: Truck, value: "NL", label: "& België", suffix: "" },
+    { icon: Clock, value: "2024", label: "Sinds oprichting", suffix: "" },
     { icon: TrendingUp, value: "24/7", label: "Support beschikbaar", suffix: "" },
   ];
 

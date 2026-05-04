@@ -2,10 +2,9 @@
 
 import { motion } from "framer-motion";
 import { 
-  Bike, 
-  Car, 
-  Warehouse, 
-  Package, 
+  Bike,
+  Car,
+  Warehouse,
   ArrowRight, 
   CheckCircle2,
   Shield,
@@ -113,9 +112,9 @@ const Hero = () => {
             className="flex gap-12 mt-16 pt-8 border-t border-white/10"
           >
             {[
-              { value: "15K+", label: "Zendingen/jaar" },
-              { value: "99%", label: "Tevreden klanten" },
-              { value: "24/7", label: "Support" },
+              { value: "NL & BE", label: "Actief in" },
+              { value: "24/7", label: "Bereikbaar" },
+              { value: "Sinds 2024", label: "Oprichting" },
             ].map((stat, index) => (
               <div key={index}>
                 <div className="text-4xl font-bold text-white">{stat.value}</div>
@@ -153,8 +152,8 @@ const Hero = () => {
                 <Truck className="w-6 h-6 text-yellow-400" />
               </div>
               <div>
-                <p className="text-zinc-900 font-bold text-lg">500+</p>
-                <p className="text-zinc-800 text-sm">Tevreden klanten</p>
+                <p className="text-zinc-900 font-bold text-lg">CMR</p>
+                <p className="text-zinc-800 text-sm">Verzekerd</p>
               </div>
             </div>
           </motion.div>
