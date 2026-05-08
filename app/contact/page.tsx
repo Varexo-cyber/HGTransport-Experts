@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   Phone, 
   Mail, 
@@ -8,6 +8,7 @@ import {
   Clock,
   Send,
   CheckCircle2,
+  XCircle,
   ArrowRight,
   Truck
 } from "lucide-react";
@@ -141,8 +142,8 @@ const ContactForm = () => {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
-
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showToast, setShowToast] = useState<null | "success" | "error">(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -157,12 +158,17 @@ const ContactForm = () => {
 
       if (response.ok) {
         setSubmitted(true);
+        setShowToast("success");
+        setFormData({ name: "", company: "", email: "", phone: "", service: "", message: "" });
+        setTimeout(() => setShowToast(null), 5000);
       } else {
-        alert("Er ging iets mis. Stuur een mail naar info@hgexperts.nl of bel +31 6 41326307");
+        setShowToast("error");
+        setTimeout(() => setShowToast(null), 5000);
       }
     } catch (error) {
       console.error("Fout bij versturen:", error);
-      alert("Er ging iets mis. Stuur een mail naar info@hgexperts.nl of bel +31 6 41326307");
+      setShowToast("error");
+      setTimeout(() => setShowToast(null), 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -193,14 +199,53 @@ const ContactForm = () => {
   }
 
   return (
-    <motion.form
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      onSubmit={handleSubmit}
-      className="bg-zinc-800/50 rounded-3xl p-8 border border-white/5"
-    >
-      <h3 className="text-2xl font-bold text-white mb-6">Stuur ons een bericht</h3>
+    <>
+      <AnimatePresence>
+        {showToast && (
+          <motion.div
+            initial={{ opacity: 0, y: -50, x: 20 }}
+            animate={{ opacity: 1, y: 0, x: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            className={`fixed top-6 right-6 z-[9999] flex items-center gap-3 px-6 py-4 rounded-2xl shadow-2xl border backdrop-blur-md ${
+              showToast === "success"
+                ? "bg-green-500/95 border-green-400 text-white"
+                : "bg-red-500/95 border-red-400 text-white"
+            }`}
+          >
+            {showToast === "success" ? (
+              <>
+                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <CheckCircle2 className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="font-bold">Bericht succesvol verzonden!</p>
+                  <p className="text-sm text-white/90">We nemen binnen 24 uur contact op.</p>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <XCircle className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="font-bold">Verzenden mislukt</p>
+                  <p className="text-sm text-white/90">Mail naar info@hgexperts.nl of bel ons.</p>
+                </div>
+              </>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <motion.form
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        onSubmit={handleSubmit}
+        className="bg-zinc-800/50 rounded-3xl p-8 border border-white/5"
+      >
+        <h3 className="text-2xl font-bold text-white mb-6">Stuur ons een bericht</h3>
       
       <div className="grid md:grid-cols-2 gap-6 mb-6">
         <div>
@@ -297,8 +342,9 @@ const ContactForm = () => {
       >
         {isSubmitting ? "Versturen..." : "Bericht Versturen"}
         {!isSubmitting && <Send className="w-5 h-5" />}
-      </button>
-    </motion.form>
+        </button>
+      </motion.form>
+    </>
   );
 };
 
