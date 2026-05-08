@@ -149,28 +149,20 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/.netlify/functions/send-email", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          access_key: "6f52286c-4977-4467-932d-209772740924", // Varexo Web3Forms Key
-          from_name: "HG Experts Website (Varexo)",
-          subject: `Nieuwe aanvraag van ${formData.name}`,
-          to_email: "info@hgexperts.nl",
-          replyto: formData.email,
-          ...formData,
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
 
       if (response.ok) {
         setSubmitted(true);
+      } else {
+        alert("Er ging iets mis. Stuur een mail naar info@hgexperts.nl of bel +31 6 41326307");
       }
     } catch (error) {
       console.error("Fout bij versturen:", error);
-      alert("Er ging iets mis. Probeer het later opnieuw of stuur direct een mail naar info@hgexperts.nl");
+      alert("Er ging iets mis. Stuur een mail naar info@hgexperts.nl of bel +31 6 41326307");
     } finally {
       setIsSubmitting(false);
     }
