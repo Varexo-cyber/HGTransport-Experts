@@ -142,9 +142,38 @@ const ContactForm = () => {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "6f52286c-4977-4467-932d-209772740924", // Varexo Web3Forms Key
+          from_name: "HG Experts Website (Varexo)",
+          subject: `Nieuwe aanvraag van ${formData.name}`,
+          to_email: "info@hgexperts.nl",
+          replyto: formData.email,
+          ...formData,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      }
+    } catch (error) {
+      console.error("Fout bij versturen:", error);
+      alert("Er ging iets mis. Probeer het later opnieuw of stuur direct een mail naar info@hgexperts.nl");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -271,10 +300,11 @@ const ContactForm = () => {
 
       <button
         type="submit"
-        className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500 text-zinc-900 py-4 rounded-xl font-semibold transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2"
+        disabled={isSubmitting}
+        className="w-full bg-yellow-500 text-zinc-900 font-bold py-4 rounded-xl hover:bg-yellow-400 transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        Verstuur aanvraag
-        <Send className="w-5 h-5" />
+        {isSubmitting ? "Versturen..." : "Bericht Versturen"}
+        {!isSubmitting && <Send className="w-5 h-5" />}
       </button>
     </motion.form>
   );
