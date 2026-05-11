@@ -11,8 +11,8 @@ export default function TermsPage() {
   return (
     <>
       {/* Page Header */}
-      <section className="relative pt-32 pb-20 bg-zinc-900">
-        <div className="max-w-4xl mx-auto px-6">
+      <section className="relative pt-24 sm:pt-32 pb-12 sm:pb-20 bg-zinc-900">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -21,7 +21,7 @@ export default function TermsPage() {
             <span className="text-yellow-400 font-semibold tracking-wider text-sm uppercase mb-4 block">
               Juridisch
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
               Algemene <span className="text-yellow-400">Voorwaarden</span>
             </h1>
             <p className="text-gray-400">
@@ -32,8 +32,8 @@ export default function TermsPage() {
       </section>
 
       {/* Content */}
-      <section className="py-20 bg-zinc-800/50">
-        <div className="max-w-4xl mx-auto px-6">
+      <section className="py-12 sm:py-20 bg-zinc-800/50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -177,7 +177,7 @@ export default function TermsPage() {
               <div className="text-gray-400">
                 <p className="font-semibold">HG Experts B.V.</p>
                 <p className="mt-2">E-mail: <a href="mailto:info@hgexperts.nl" className="hover:text-yellow-400 transition-colors">info@hgexperts.nl</a></p>
-                <p>Telefoon: <a href="tel:+31641326307" className="hover:text-yellow-400 transition-colors">+31 6 41326307</a></p>
+                <p>Telefoon: <a href="tel:+31852502665" className="hover:text-yellow-400 transition-colors">085 250 2665</a></p>
                 <p className="mt-2">KVK: 95814426</p>
                 <p>BTW: NL867316809B01</p>
                 <p>RSIN: 867316809</p>

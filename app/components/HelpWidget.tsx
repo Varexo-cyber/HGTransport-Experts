@@ -72,7 +72,7 @@ export default function HelpWidget() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="fixed bottom-36 right-6 w-full max-w-md bg-zinc-800 rounded-3xl shadow-2xl z-50 overflow-hidden border border-white/10"
+              className="fixed inset-x-3 bottom-3 sm:inset-x-auto sm:bottom-36 sm:right-6 sm:w-full sm:max-w-md bg-zinc-800 rounded-3xl shadow-2xl z-50 overflow-hidden border border-white/10 max-h-[85vh] flex flex-col"
             >
               {/* Header */}
               <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 p-6 flex items-center justify-between">
@@ -94,7 +94,7 @@ export default function HelpWidget() {
               </div>
 
               {/* FAQ List */}
-              <div className="p-4 max-h-[400px] overflow-y-auto">
+              <div className="p-4 flex-1 overflow-y-auto">
                 {faqs.map((faq, index) => (
                   <div key={index} className="mb-2">
                     <button

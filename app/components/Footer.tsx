@@ -22,7 +22,7 @@ export default function Footer() {
   return (
     <footer className="bg-zinc-900 border-t border-zinc-700">
       {/* CTA Section */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
         <div className="bg-gradient-to-br from-zinc-800 via-zinc-700 to-zinc-800 rounded-3xl p-8 md:p-12 relative overflow-hidden border border-zinc-600">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-yellow-500/10 via-transparent to-transparent" />
           
@@ -56,10 +56,10 @@ export default function Footer() {
       </div>
 
       {/* Footer Links */}
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-4 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12">
           {/* Company Info */}
-          <div className="md:col-span-1">
+          <div className="col-span-2 md:col-span-1">
             <Logo />
             <p className="text-zinc-400 mt-4 text-sm">
               Uw betrouwbare partner voor fiets- en autotransport in Nederland en België sinds 2024.
@@ -109,9 +109,9 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4">Contact</h4>
             <ul className="space-y-3">
               <li>
-                <a href="tel:+31641326307" className="flex items-center gap-3 text-zinc-400 text-sm hover:text-yellow-400 transition-colors">
+                <a href="tel:+31852502665" className="flex items-center gap-3 text-zinc-400 text-sm hover:text-yellow-400 transition-colors">
                   <Phone className="w-4 h-4 text-yellow-500" />
-                  +31 6 41326307
+                  085 250 2665
                 </a>
               </li>
               <li>
@@ -125,11 +125,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-zinc-500 text-sm">
-            © 2026 HG Experts B.V. (KVK: 95814426) — Alle rechten voorbehouden.
+        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-zinc-500 text-xs sm:text-sm text-center">
+            © 2026 HG Experts B.V. (KVK: 95814426)
           </p>
-          <div className="flex gap-6 items-center">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 items-center">
             <p className="text-zinc-500 text-sm">
               Medemogelijk gemaakt door{" "}
               <a 

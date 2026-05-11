@@ -22,11 +22,11 @@ const fadeInUp = {
 // Page Header
 const PageHeader = () => {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden">
+    <section className="relative pt-24 sm:pt-32 pb-12 sm:pb-20 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-900" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-yellow-500/10 via-transparent to-transparent" />
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -35,10 +35,10 @@ const PageHeader = () => {
           <span className="text-yellow-400 font-semibold tracking-wider text-sm uppercase mb-4 block">
             Over Ons
           </span>
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6">
             Transport met <span className="text-yellow-400">passie</span>
           </h1>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-400 text-base sm:text-lg">
             Sinds 2024 de betrouwbare partner voor fiets- en autotransport 
             in Nederland en België.
           </p>
@@ -51,9 +51,9 @@ const PageHeader = () => {
 // Story Section
 const StorySection = () => {
   return (
-    <section className="relative py-20 bg-zinc-900">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="relative py-12 sm:py-20 bg-zinc-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -62,7 +62,7 @@ const StorySection = () => {
             <span className="text-yellow-400 font-semibold tracking-wider text-sm uppercase mb-4 block">
               Ons Verhaal
             </span>
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">
               Van passie voor transport tot marktleider
             </h2>
             <div className="space-y-4 text-gray-400 leading-relaxed">
@@ -102,7 +102,7 @@ const StorySection = () => {
             </div>
             
             {/* Stats overlay */}
-            <div className="absolute -bottom-6 -left-6 right-6 bg-zinc-800 rounded-2xl p-6 shadow-2xl">
+            <div className="relative sm:absolute sm:-bottom-6 sm:-left-6 sm:right-6 mt-4 sm:mt-0 bg-zinc-800 rounded-2xl p-4 sm:p-6 shadow-2xl">
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
                   <div className="text-3xl font-bold text-yellow-400">2024</div>
@@ -151,8 +151,8 @@ const ValuesSection = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-zinc-800/50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative py-16 sm:py-32 bg-zinc-800/50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -162,12 +162,12 @@ const ValuesSection = () => {
           <span className="text-yellow-400 font-semibold tracking-wider text-sm uppercase mb-4 block">
             Onze Kernwaarden
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
             Waar we voor <span className="text-yellow-400">staan</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {values.map((value, index) => (
             <motion.div
               key={index}
@@ -216,8 +216,8 @@ const TeamSection = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-zinc-900">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative py-16 sm:py-32 bg-zinc-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -227,12 +227,12 @@ const TeamSection = () => {
           <span className="text-yellow-400 font-semibold tracking-wider text-sm uppercase mb-4 block">
             Ons Team
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
             De mensen achter <span className="text-yellow-400">HG Experts</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
           {team.map((member, index) => (
             <motion.div
               key={index}
@@ -272,16 +272,16 @@ const AchievementsSection = () => {
   ];
 
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section className="relative py-16 sm:py-32 overflow-hidden">
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        className="absolute inset-0 bg-cover bg-center sm:bg-fixed"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1920&q=80')`,
         }}
       />
       <div className="absolute inset-0 bg-zinc-900/90" />
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -291,7 +291,7 @@ const AchievementsSection = () => {
           <span className="text-yellow-400 font-semibold tracking-wider text-sm uppercase mb-4 block">
             Cijfers
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
             Onze resultaten in <span className="text-yellow-400">cijfers</span>
           </h2>
         </motion.div>
@@ -324,17 +324,17 @@ const AchievementsSection = () => {
 // CTA Section
 const CTASection = () => {
   return (
-    <section className="relative py-32">
+    <section className="relative py-16 sm:py-32">
       <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 via-zinc-700 to-zinc-800" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-yellow-500/10 via-transparent to-transparent" />
       
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
             Wordt ook een tevreden klant
           </h2>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">

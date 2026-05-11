@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   Bike,
   Car,
@@ -13,9 +13,12 @@ import {
   Truck,
   Star,
   TrendingUp,
-  Users
+  Users,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 import Link from "next/link";
+import { useState, useEffect, useCallback } from "react";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -47,7 +50,7 @@ const Hero = () => {
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-16 sm:py-32 w-full">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         <motion.div
           variants={staggerContainer}
@@ -66,7 +69,7 @@ const Hero = () => {
 
           <motion.h1 
             variants={fadeInUp}
-            className="text-5xl md:text-7xl font-bold text-white leading-tight mb-6"
+            className="text-3xl sm:text-5xl md:text-7xl font-bold text-white leading-tight mb-4 sm:mb-6"
           >
             Eenvoud in{" "}
             <span className="bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent">
@@ -77,30 +80,30 @@ const Hero = () => {
 
           <motion.p 
             variants={fadeInUp}
-            className="text-2xl md:text-3xl text-gray-300 mb-4 font-light"
+            className="text-lg sm:text-2xl md:text-3xl text-gray-300 mb-3 sm:mb-4 font-light"
           >
             Jouw lading, <span className="text-white font-semibold">onze focus</span>
           </motion.p>
 
           <motion.p 
             variants={fadeInUp}
-            className="text-gray-400 text-lg mb-8 max-w-xl"
+            className="text-gray-400 text-base sm:text-lg mb-6 sm:mb-8 max-w-xl"
           >
             Van fiets- en autotransport tot warehousing. 
             Wij bieden alles voor uw transportbehoeften.
           </motion.p>
 
-          <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
+          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Link
               href="/contact"
-              className="group bg-yellow-500 text-zinc-900 px-8 py-4 rounded-full font-semibold hover:bg-yellow-400 transition-all transform hover:scale-105 flex items-center gap-2"
+              className="group bg-yellow-500 text-zinc-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:bg-yellow-400 transition-all transform hover:scale-105 flex items-center justify-center gap-2 text-sm sm:text-base"
             >
               Offerte Aanvragen
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               href="/diensten"
-              className="border-2 border-white/30 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-all flex items-center gap-2"
+              className="border-2 border-white/30 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:bg-white/10 transition-all flex items-center justify-center gap-2 text-sm sm:text-base"
             >
               Bekijk Diensten
             </Link>
@@ -109,7 +112,7 @@ const Hero = () => {
           {/* Stats */}
           <motion.div 
             variants={fadeInUp}
-            className="flex gap-12 mt-16 pt-8 border-t border-white/10"
+            className="flex gap-6 sm:gap-12 mt-10 sm:mt-16 pt-6 sm:pt-8 border-t border-white/10"
           >
             {[
               { value: "NL & BE", label: "Actief in" },
@@ -117,8 +120,8 @@ const Hero = () => {
               { value: "Sinds 2024", label: "Oprichting" },
             ].map((stat, index) => (
               <div key={index}>
-                <div className="text-4xl font-bold text-white">{stat.value}</div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
+                <div className="text-2xl sm:text-4xl font-bold text-white">{stat.value}</div>
+                <div className="text-xs sm:text-sm text-gray-400">{stat.label}</div>
               </div>
             ))}
           </motion.div>
@@ -164,7 +167,7 @@ const Hero = () => {
   );
 };
 
-// Services Section
+// Services Section - Carousel
 const Services = () => {
   const services = [
     {
@@ -173,7 +176,6 @@ const Services = () => {
       description: "Complete end-to-end logistieke oplossingen voor fietsen van alle merken en maten. Van kleine tot grote zendingen.",
       features: ["Alle fietsmerken", "Verzekerd transport", "Track & trace"],
       image: "https://images.unsplash.com/photo-1571333250630-f0230c320b6d?w=600&q=80",
-      color: "amber",
     },
     {
       icon: Car,
@@ -181,7 +183,6 @@ const Services = () => {
       description: "Internationaal autotransport tot 3,5 ton – van kleine auto's tot grote bestelwagens. Veilig en verzekerd.",
       features: ["Tot 3,5 ton", "Dealers & particulieren", "Door heel NL & BE"],
       image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&q=80",
-      color: "yellow",
     },
     {
       icon: Warehouse,
@@ -189,15 +190,35 @@ const Services = () => {
       description: "Veilige, strategische en schaalbare opslagoplossingen voor uw goederen met 24/7 monitoring.",
       features: ["24/7 Monitoring", "Korte & lange termijn", "Picking & packing"],
       image: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80",
-      color: "amber",
     },
   ];
 
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const paginate = useCallback((newDirection: number) => {
+    setDirection(newDirection);
+    setCurrent((prev) => (prev + newDirection + services.length) % services.length);
+  }, [services.length]);
+
+  useEffect(() => {
+    const timer = setInterval(() => paginate(1), 5000);
+    return () => clearInterval(timer);
+  }, [paginate]);
+
+  const slideVariants = {
+    enter: (dir: number) => ({ x: dir > 0 ? 400 : -400, opacity: 0, scale: 0.95 }),
+    center: { x: 0, opacity: 1, scale: 1 },
+    exit: (dir: number) => ({ x: dir > 0 ? -400 : 400, opacity: 0, scale: 0.95 }),
+  };
+
+  const service = services[current];
+
   return (
-    <section className="relative py-32 bg-zinc-900">
+    <section className="relative py-16 sm:py-32 bg-zinc-900">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-800/20 via-zinc-900 to-zinc-900" />
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -207,70 +228,114 @@ const Services = () => {
           <span className="text-yellow-400 font-semibold tracking-wider text-sm uppercase mb-4 block">
             Onze Diensten
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
             Alles voor uw <span className="text-yellow-400">transport</span>
           </h2>
-          <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+          <p className="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto">
             Met onze complete logistieke diensten haalt u het beste uit internationaal transport.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Link href="/diensten" className="group block h-full">
-                <div className="h-full bg-zinc-800/50 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/5 hover:border-yellow-500/30 transition-all hover:bg-zinc-800/80">
-                  {/* Image */}
-                  <div className="relative h-48 overflow-hidden">
-                    <img 
-                      src={service.image} 
-                      alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%23334155' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%2394a3b8' font-family='sans-serif' font-size='20'%3E" + service.title + "%3C/text%3E%3C/svg%3E";
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent" />
-                    <div className="absolute bottom-4 left-4">
-                      <div className={`w-12 h-12 rounded-xl bg-yellow-500/90 flex items-center justify-center`}>
-                        <service.icon className="w-6 h-6 text-white" />
+        {/* Carousel */}
+        <div className="relative max-w-4xl mx-auto">
+          {/* Arrow Left */}
+          <button
+            onClick={() => paginate(-1)}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-4 md:-translate-x-14 z-20 w-10 h-10 sm:w-12 sm:h-12 bg-zinc-800/80 hover:bg-yellow-500 border border-white/10 hover:border-yellow-400 rounded-full flex items-center justify-center text-white transition-all duration-300 backdrop-blur-sm"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
+          {/* Arrow Right */}
+          <button
+            onClick={() => paginate(1)}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-4 md:translate-x-14 z-20 w-10 h-10 sm:w-12 sm:h-12 bg-zinc-800/80 hover:bg-yellow-500 border border-white/10 hover:border-yellow-400 rounded-full flex items-center justify-center text-white transition-all duration-300 backdrop-blur-sm"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          {/* Slide */}
+          <div className="overflow-hidden rounded-3xl">
+            <AnimatePresence initial={false} custom={direction} mode="wait">
+              <motion.div
+                key={current}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ type: "spring", stiffness: 200, damping: 30, duration: 0.5 }}
+              >
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Link href="/diensten" className="group block">
+                    <div className="bg-zinc-800/50 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/5 hover:border-yellow-500/30 transition-all hover:bg-zinc-800/80 md:flex">
+                      {/* Image */}
+                      <div className="relative md:w-1/2 h-64 md:h-auto overflow-hidden">
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%23334155' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%2394a3b8' font-family='sans-serif' font-size='20'%3E" + service.title + "%3C/text%3E%3C/svg%3E";
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-zinc-900/80 to-transparent" />
+                        <div className="absolute bottom-4 left-4">
+                          <div className="w-14 h-14 rounded-xl bg-yellow-500/90 flex items-center justify-center shadow-lg shadow-yellow-500/20">
+                            <service.icon className="w-7 h-7 text-white" />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="p-8 md:p-10 md:w-1/2 flex flex-col justify-center">
+                        <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-yellow-400 transition-colors">
+                          {service.title}
+                        </h3>
+                        <p className="text-zinc-400 mb-6 leading-relaxed text-lg">
+                          {service.description}
+                        </p>
+                        <ul className="space-y-3 mb-8">
+                          {service.features.map((feature, i) => (
+                            <li key={i} className="flex items-center gap-3 text-zinc-300">
+                              <CheckCircle2 className="w-5 h-5 text-yellow-400 flex-shrink-0" />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="flex items-center gap-2 text-yellow-400 font-semibold text-lg">
+                          Meer informatie
+                          <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
-                  <div className="p-8">
-                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-yellow-400 transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-zinc-400 mb-6 leading-relaxed">
-                      {service.description}
-                    </p>
+                  </Link>
+                </motion.div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-                    <ul className="space-y-2 mb-6">
-                      {service.features.map((feature, i) => (
-                        <li key={i} className="flex items-center gap-2 text-sm text-zinc-300">
-                          <CheckCircle2 className="w-4 h-4 text-yellow-400" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="flex items-center gap-2 text-yellow-400 font-medium">
-                      Meer informatie
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+          {/* Dots */}
+          <div className="flex justify-center gap-3 mt-8">
+            {services.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setDirection(index > current ? 1 : -1);
+                  setCurrent(index);
+                }}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === current
+                    ? "w-8 bg-yellow-400"
+                    : "w-2 bg-zinc-600 hover:bg-zinc-500"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -308,31 +373,31 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section className="relative py-16 sm:py-32 overflow-hidden">
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        className="absolute inset-0 bg-cover bg-center sm:bg-fixed"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1920&q=80')`,
         }}
       />
       <div className="absolute inset-0 bg-zinc-900/90" />
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
           <span className="text-yellow-400 font-semibold tracking-wider text-sm uppercase mb-4 block">
             Waarom wij
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
             De beste keuze voor <span className="text-yellow-400">transport</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -379,23 +444,23 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-zinc-900">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative py-16 sm:py-32 bg-zinc-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
           <span className="text-yellow-400 font-semibold tracking-wider text-sm uppercase mb-4 block">
             Testimonials
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
             Wat klanten <span className="text-yellow-400">zeggen</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -426,17 +491,17 @@ const Testimonials = () => {
 // CTA Section
 const CTASection = () => {
   return (
-    <section className="relative py-32">
+    <section className="relative py-16 sm:py-32">
       <div className="absolute inset-0 bg-gradient-to-r from-zinc-800 via-zinc-700 to-zinc-800" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-yellow-500/10 via-transparent to-transparent" />
       
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
             Klaar om uw transport te regelen?
           </h2>
           <p className="text-zinc-300 text-lg mb-8 max-w-2xl mx-auto">

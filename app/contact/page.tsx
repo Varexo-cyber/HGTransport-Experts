@@ -23,7 +23,7 @@ const fadeInUp = {
 // Page Header
 const PageHeader = () => {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden">
+    <section className="relative pt-24 sm:pt-32 pb-12 sm:pb-20 overflow-hidden">
       <div className="absolute inset-0 bg-zinc-900" />
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-30"
@@ -33,7 +33,7 @@ const PageHeader = () => {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-900/80 to-zinc-900" />
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -42,10 +42,10 @@ const PageHeader = () => {
           <span className="text-yellow-400 font-semibold tracking-wider text-sm uppercase mb-4 block">
             Contact
           </span>
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6">
             Neem <span className="text-yellow-400">contact</span> op
           </h1>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-400 text-base sm:text-lg">
             Heeft u vragen of wilt u een vrijblijvende offerte aanvragen? 
             Wij staan voor u klaar.
           </p>
@@ -61,9 +61,9 @@ const ContactInfo = () => {
     {
       icon: Phone,
       title: "Telefoon",
-      details: ["+31 6 41326307"],
+      details: ["085 250 2665"],
       description: "Ma-Vr: 08:00 - 18:00",
-      link: "tel:+31641326307",
+      link: "tel:+31852502665",
     },
     {
       icon: Mail,
@@ -81,9 +81,9 @@ const ContactInfo = () => {
   ];
 
   return (
-    <section className="relative py-20 bg-zinc-900">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+    <section className="relative py-12 sm:py-20 bg-zinc-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
           {contacts.map((contact, index) => (
             <motion.div
               key={index}
@@ -367,11 +367,11 @@ const QuickQuote = () => {
       </p>
 
       <a
-        href="tel:+31641326307"
+        href="tel:+31852502665"
         className="inline-flex items-center gap-2 bg-yellow-500 text-zinc-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition-all"
       >
         <Phone className="w-5 h-5" />
-        +31 6 41326307
+        085 250 2665
       </a>
 
       <div className="mt-8 pt-6 border-t border-white/20">
@@ -453,9 +453,9 @@ export default function ContactPage() {
       <PageHeader />
       <ContactInfo />
       
-      <section className="relative py-20 bg-zinc-900">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-5 gap-12">
+      <section className="relative py-12 sm:py-20 bg-zinc-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-5 gap-8 sm:gap-12">
             <div className="lg:col-span-3">
               <ContactForm />
             </div>
@@ -469,10 +469,10 @@ export default function ContactPage() {
                   Voor spoedtransport buiten kantooruren:
                 </p>
                 <a 
-                  href="tel:+31641326307"
+                  href="tel:+31852502665"
                   className="text-yellow-400 font-medium hover:text-yellow-300 transition-colors"
                 >
-                  +31 6 41326307
+                  085 250 2665
                 </a>
               </div>
             </div>

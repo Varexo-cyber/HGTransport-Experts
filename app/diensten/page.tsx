@@ -23,11 +23,11 @@ const fadeInUp = {
 // Page Header
 const PageHeader = () => {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden">
+    <section className="relative pt-24 sm:pt-32 pb-12 sm:pb-20 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-yellow-500/10 via-transparent to-transparent" />
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -36,10 +36,10 @@ const PageHeader = () => {
           <span className="text-yellow-400 font-semibold tracking-wider text-sm uppercase mb-4 block">
             Onze Diensten
           </span>
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6">
             Complete <span className="text-yellow-400">logistieke</span> oplossingen
           </h1>
-          <p className="text-zinc-300 text-lg">
+          <p className="text-zinc-300 text-base sm:text-lg">
             Van fiets- en autotransport tot warehousing. 
             Wij bieden alles voor uw transportbehoeften.
           </p>
@@ -103,9 +103,9 @@ const MainServices = () => {
   ];
 
   return (
-    <section className="relative py-20 bg-zinc-900">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="space-y-32">
+    <section className="relative py-12 sm:py-20 bg-zinc-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="space-y-16 sm:space-y-32">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -143,10 +143,10 @@ const MainServices = () => {
                 <span className="text-yellow-400 font-semibold text-sm uppercase tracking-wider mb-2 block">
                   {service.subtitle}
                 </span>
-                <h2 className="text-4xl font-bold text-white mb-4">
+                <h2 className="text-2xl sm:text-4xl font-bold text-white mb-3 sm:mb-4">
                   {service.title}
                 </h2>
-                <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+                <p className="text-gray-400 text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed">
                   {service.description}
                 </p>
 
@@ -201,8 +201,8 @@ const ProcessSection = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-zinc-800/50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative py-16 sm:py-32 bg-zinc-800/50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -212,12 +212,12 @@ const ProcessSection = () => {
           <span className="text-yellow-400 font-semibold tracking-wider text-sm uppercase mb-4 block">
             Hoe het werkt
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
             Ons <span className="text-yellow-400">proces</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -228,9 +228,9 @@ const ProcessSection = () => {
               className="relative"
             >
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-12 left-1/2 w-full h-0.5 bg-gradient-to-r from-yellow-500/50 to-transparent" />
+                <div className="hidden md:block absolute top-12 left-1/2 w-full h-0.5 bg-gradient-to-r from-yellow-500/50 to-transparent z-0" />
               )}
-              <div className="text-6xl font-bold text-yellow-500/20 mb-4">
+              <div className="text-6xl font-bold text-yellow-500/20 mb-4 relative z-10">
                 {step.number}
               </div>
               <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
@@ -246,8 +246,8 @@ const ProcessSection = () => {
 // Pricing Section
 const PricingSection = () => {
   return (
-    <section className="relative py-32 bg-zinc-900">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative py-16 sm:py-32 bg-zinc-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -257,15 +257,15 @@ const PricingSection = () => {
           <span className="text-yellow-400 font-semibold tracking-wider text-sm uppercase mb-4 block">
             Tarieven
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
             Transparante <span className="text-yellow-400">prijzen</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
             Geen verborgen kosten. Vraag een vrijblijvende offerte aan voor uw specifieke transportbehoefte.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {[
             {
               name: "Standaard",
@@ -355,7 +355,7 @@ const PricingSection = () => {
 // CTA Section
 const CTASection = () => {
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section className="relative py-16 sm:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-zinc-800 via-zinc-700 to-zinc-800" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-yellow-500/10 via-transparent to-transparent" />
       
@@ -387,13 +387,13 @@ const CTASection = () => {
         </div>
       </motion.div>
       
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
             Start met HG Transport
           </h2>
           <p className="text-zinc-300 text-lg mb-8 max-w-2xl mx-auto">
