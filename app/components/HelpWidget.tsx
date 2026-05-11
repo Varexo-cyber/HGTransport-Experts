@@ -7,24 +7,24 @@ import Link from "next/link";
 
 const faqs = [
   {
-    question: "Wat zijn de levertijden?",
-    answer: "Voor fietsen: 1-2 werkdagen. Voor auto's: 2-5 werkdagen. Express levering mogelijk tegen toeslag."
+    question: "Welke diensten bieden jullie aan?",
+    answer: "Fietstransport, autotransport (tot 3,5 ton) en warehousing door heel Nederland en België."
   },
   {
-    question: "Hoe kan ik mijn zending volgen?",
-    answer: "U ontvangt een track & trace link zodra uw zending is opgehaald. U kunt realtime de status bekijken."
-  },
-  {
-    question: "Wat kost transport?",
-    answer: "Onze tarieven zijn afhankelijk van afstand, volume en type goederen. Vraag een vrijblijvende offerte aan voor exacte prijzen."
-  },
-  {
-    question: "Leveren jullie ook in het weekend?",
-    answer: "Ja, weekendleveringen zijn mogelijk tegen een kleine toeslag. Neem contact op voor beschikbaarheid."
+    question: "Hoe vraag ik een offerte aan?",
+    answer: "Via het contactformulier, bel 085 250 2665 of stuur een WhatsApp-bericht. Wij reageren zo snel mogelijk."
   },
   {
     question: "Is mijn zending verzekerd?",
-    answer: "Ja, standaard CMR-verzekering is inbegrepen. Extra verzekering mogelijk op aanvraag."
+    answer: "Ja, al onze transporten zijn standaard CMR-verzekerd."
+  },
+  {
+    question: "Wat zijn jullie openingstijden?",
+    answer: "Maandag t/m vrijdag 08:00 - 18:00. Zaterdag 09:00 - 13:00."
+  },
+  {
+    question: "Wat kost transport?",
+    answer: "Tarieven zijn afhankelijk van type transport, volume en afstand. Neem contact op voor een offerte op maat."
   }
 ];
 

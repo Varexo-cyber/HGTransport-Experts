@@ -180,23 +180,23 @@ const ProcessSection = () => {
   const steps = [
     {
       number: "01",
-      title: "Aanmelden",
-      description: "Meld uw zending eenvoudig aan via email of telefoon.",
+      title: "Offerte aanvragen",
+      description: "Neem contact met ons op via telefoon, e-mail of het contactformulier voor een vrijblijvende offerte.",
     },
     {
       number: "02",
-      title: "Ophalen",
-      description: "Wij komen uw goederen ophalen op het afgesproken tijdstip en locatie.",
+      title: "Afspraken maken",
+      description: "Wij plannen samen een ophaalmoment dat bij u past. U ontvangt een bevestiging.",
     },
     {
       number: "03",
-      title: "Transport",
-      description: "Uw zending wordt veilig vervoerd met realtime tracking en updates.",
+      title: "Ophalen & transport",
+      description: "Wij halen uw goederen op en verzorgen het transport door Nederland en België.",
     },
     {
       number: "04",
       title: "Afleveren",
-      description: "Netjes afleveren op bestemming met bevestiging en proofof delivery.",
+      description: "Uw zending wordt netjes en veilig afgeleverd op de afgesproken bestemming.",
     },
   ];
 
@@ -207,7 +207,7 @@ const ProcessSection = () => {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
           <span className="text-yellow-400 font-semibold tracking-wider text-sm uppercase mb-4 block">
             Hoe het werkt
@@ -217,7 +217,7 @@ const ProcessSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -225,16 +225,13 @@ const ProcessSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="relative"
+              className="bg-zinc-900/60 rounded-2xl p-6 border border-white/5 hover:border-yellow-500/30 transition-all"
             >
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-12 left-1/2 w-full h-0.5 bg-gradient-to-r from-yellow-500/50 to-transparent z-0" />
-              )}
-              <div className="text-6xl font-bold text-yellow-500/20 mb-4 relative z-10">
-                {step.number}
+              <div className="w-12 h-12 rounded-xl bg-yellow-500/20 flex items-center justify-center mb-4">
+                <span className="text-yellow-400 font-bold text-lg">{step.number}</span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-              <p className="text-zinc-400 text-sm">{step.description}</p>
+              <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
+              <p className="text-zinc-400 text-sm leading-relaxed">{step.description}</p>
             </motion.div>
           ))}
         </div>

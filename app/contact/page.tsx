@@ -391,24 +391,24 @@ const QuickQuote = () => {
 const FAQSection = () => {
   const faqs = [
     {
-      question: "Hoe snel kan mijn zending opgehaald worden?",
-      answer: "Voor spoedzendingen kunnen we vaak nog dezelfde dag ophalen. Voor reguliere zendingen hanteren we een ophaaltijd binnen 24-48 uur na aanmelding.",
+      question: "Welke diensten bieden jullie aan?",
+      answer: "Wij zijn gespecialiseerd in fietstransport, autotransport (tot 3,5 ton) en warehousing. Wij verzorgen transport door heel Nederland en België.",
     },
     {
       question: "Zijn mijn goederen verzekerd tijdens transport?",
-      answer: "Ja, al onze transporten zijn standaard CMR-verzekerd. Extra verzekering is mogelijk op aanvraag. Neem contact met ons op voor specifieke verzekeringswensen.",
+      answer: "Ja, al onze transporten zijn standaard CMR-verzekerd. Voor aanvullende dekking kunt u contact met ons opnemen.",
     },
     {
-      question: "Kan ik mijn zending volgen?",
-      answer: "Absoluut! U ontvangt updates over de status van uw zending. Bij belangrijke mijlpalen ontvangt u automatisch bericht.",
-    },
-    {
-      question: "Leveren jullie ook in het weekend?",
-      answer: "Ja, weekendleveringen zijn mogelijk tegen een kleine toeslag. Dit bespreken we graag tijdens het offerte-traject.",
+      question: "Hoe kan ik een offerte aanvragen?",
+      answer: "U kunt het contactformulier invullen, ons bellen op 085 250 2665 of een WhatsApp-bericht sturen. Wij reageren zo snel mogelijk met een vrijblijvende offerte.",
     },
     {
       question: "Wat zijn jullie tarieven?",
-      answer: "Onze tarieven zijn afhankelijk van volume, afstand en type goederen. Vraag een vrijblijvende offerte aan voor een exacte prijsopgave.",
+      answer: "Onze tarieven zijn afhankelijk van het type transport, volume en afstand. Neem contact op voor een offerte op maat.",
+    },
+    {
+      question: "Waar zijn jullie bereikbaar?",
+      answer: "U kunt ons bereiken via telefoon (085 250 2665), e-mail (info@hgexperts.nl) of WhatsApp. Wij zijn bereikbaar van maandag t/m vrijdag, 08:00 - 18:00.",
     },
   ];
 

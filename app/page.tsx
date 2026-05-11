@@ -11,7 +11,6 @@ import {
   Clock,
   Globe,
   Truck,
-  Star,
   TrendingUp,
   Users,
   ChevronLeft,
@@ -420,74 +419,6 @@ const WhyChooseUs = () => {
   );
 };
 
-// Testimonials Section
-const Testimonials = () => {
-  const testimonials = [
-    {
-      name: "Teun S.",
-      company: "Fietsenwinkel Utrecht",
-      text: "Zeer tevreden over het transport van onze fietsen. Snelle levering en goede communicatie.",
-      rating: 5,
-    },
-    {
-      name: "Lisa B.",
-      company: "Autobedrijf Den Haag",
-      text: "Professioneel autotransport voor onze occasions. Alles netjes op tijd geleverd.",
-      rating: 5,
-    },
-    {
-      name: "Mark V.",
-      company: "Logistiek Partner",
-      text: "Betrouwbare partner voor onze transportbehoeften. Aan te bevelen.",
-      rating: 5,
-    },
-  ];
-
-  return (
-    <section className="relative py-16 sm:py-32 bg-zinc-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12 sm:mb-16"
-        >
-          <span className="text-yellow-400 font-semibold tracking-wider text-sm uppercase mb-4 block">
-            Testimonials
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
-            Wat klanten <span className="text-yellow-400">zeggen</span>
-          </h2>
-        </motion.div>
-
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="bg-zinc-800/50 rounded-2xl p-8 border border-white/5"
-            >
-              <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
-              <p className="text-zinc-300 mb-6 leading-relaxed">"{testimonial.text}"</p>
-              <div>
-                <div className="text-white font-semibold">{testimonial.name}</div>
-                <div className="text-zinc-500 text-sm">{testimonial.company}</div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
 // CTA Section
 const CTASection = () => {
   return (
@@ -535,7 +466,6 @@ export default function Home() {
       <Hero />
       <Services />
       <WhyChooseUs />
-      <Testimonials />
       <CTASection />
     </>
   );
