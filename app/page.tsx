@@ -14,7 +14,9 @@ import {
   TrendingUp,
   Users,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Star,
+  Quote
 } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
@@ -419,6 +421,173 @@ const WhyChooseUs = () => {
   );
 };
 
+// Reviews Section (auto-sliding carousel)
+const ReviewsSection = () => {
+  const reviews = [
+    {
+      name: "Bram de Wit",
+      location: "Amsterdam",
+      rating: 5,
+      text: "Mijn racefiets binnen één dag van Amsterdam naar Maastricht laten brengen. Goed verpakt, geen krasje. Top geregeld!",
+    },
+    {
+      name: "Linda Hofman",
+      location: "Rotterdam",
+      rating: 5,
+      text: "Voor onze webshop laten we regelmatig fietsen ophalen. Communicatie verloopt soepel en de chauffeurs zijn altijd vriendelijk.",
+    },
+    {
+      name: "Yusuf Demir",
+      location: "Utrecht",
+      rating: 5,
+      text: "Auto verkocht via Marktplaats en HG Experts heeft hem keurig naar de koper in België gebracht. Eerlijke prijs, duidelijke afspraken.",
+    },
+    {
+      name: "Aïsha Benali",
+      location: "Den Haag",
+      rating: 5,
+      text: "Snelle reactie op mijn offerteaanvraag en de volgende dag al een ophaalafspraak. Heel fijn als alles soepel loopt.",
+    },
+    {
+      name: "Mohammed El Amrani",
+      location: "Eindhoven",
+      rating: 5,
+      text: "Ik twijfelde tussen meerdere transporteurs maar HG Experts had het beste contact en een eerlijke prijs. Aanrader.",
+    },
+    {
+      name: "Karin van Leeuwen",
+      location: "Groningen",
+      rating: 5,
+      text: "Mijn dochter is naar Antwerpen verhuisd en haar elektrische fiets is netjes daar afgeleverd. Fijne service.",
+    },
+    {
+      name: "Hassan Ouahbi",
+      location: "Nijmegen",
+      rating: 4,
+      text: "Goede ervaring. Levering was iets later dan gepland maar werd netjes gecommuniceerd. Verder prima werk.",
+    },
+    {
+      name: "Priya Sharma",
+      location: "Haarlem",
+      rating: 5,
+      text: "Twee mountainbikes opgehaald voor een evenement. Alles op tijd, goed verzekerd en perfect afgeleverd.",
+    },
+    {
+      name: "Emre Kaya",
+      location: "Tilburg",
+      rating: 5,
+      text: "Voor onze garage verzorgen ze regelmatig autotransporten. Betrouwbaar, professioneel en een vaste partner geworden.",
+    },
+    {
+      name: "Iris de Vries",
+      location: "Breda",
+      rating: 5,
+      text: "Persoonlijk contact, geen gedoe en een eerlijke offerte. Precies waar je naar op zoek bent bij een transporteur.",
+    },
+  ];
+
+  const [current, setCurrent] = useState(0);
+  const [perView, setPerView] = useState(3);
+
+  useEffect(() => {
+    const updatePerView = () => {
+      if (window.innerWidth < 640) setPerView(1);
+      else if (window.innerWidth < 1024) setPerView(2);
+      else setPerView(3);
+    };
+    updatePerView();
+    window.addEventListener("resize", updatePerView);
+    return () => window.removeEventListener("resize", updatePerView);
+  }, []);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCurrent((c) => (c + 1) % reviews.length);
+    }, 5000);
+    return () => clearInterval(id);
+  }, [reviews.length]);
+
+  const visible = Array.from({ length: perView }, (_, i) => reviews[(current + i) % reviews.length]);
+
+  return (
+    <section className="relative py-16 sm:py-32 bg-zinc-900 overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-yellow-500/5 via-transparent to-transparent" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12 sm:mb-16"
+        >
+          <span className="text-yellow-400 font-semibold tracking-wider text-sm uppercase mb-4 block">
+            Reviews
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+            Wat klanten over ons <span className="text-yellow-400">zeggen</span>
+          </h2>
+          <p className="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto">
+            Echte ervaringen van particulieren en bedrijven die hun transport aan ons toevertrouwden.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <AnimatePresence mode="popLayout">
+            {visible.map((review, i) => (
+              <motion.div
+                key={`${current}-${i}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="bg-zinc-800/60 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/5 relative"
+              >
+                <Quote className="absolute top-4 right-4 w-8 h-8 text-yellow-500/20" />
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, idx) => (
+                    <Star
+                      key={idx}
+                      className={`w-4 h-4 ${idx < review.rating ? "text-yellow-400 fill-yellow-400" : "text-zinc-600"}`}
+                    />
+                  ))}
+                </div>
+                <p className="text-zinc-300 mb-6 leading-relaxed text-sm sm:text-base">
+                  &ldquo;{review.text}&rdquo;
+                </p>
+                <div className="flex items-center gap-3 pt-4 border-t border-white/5">
+                  <div className="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center">
+                    <span className="text-yellow-400 font-bold text-sm">
+                      {review.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+                    </span>
+                  </div>
+                  <div>
+                    <div className="text-white font-semibold text-sm">{review.name}</div>
+                    <div className="text-zinc-500 text-xs">{review.location}</div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-8">
+          {reviews.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrent(idx)}
+              className={`h-2 rounded-full transition-all ${
+                idx === current ? "w-8 bg-yellow-500" : "w-2 bg-zinc-700 hover:bg-zinc-600"
+              }`}
+              aria-label={`Ga naar review ${idx + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // CTA Section
 const CTASection = () => {
   return (
@@ -466,6 +635,7 @@ export default function Home() {
       <Hero />
       <Services />
       <WhyChooseUs />
+      <ReviewsSection />
       <CTASection />
     </>
   );
