@@ -140,7 +140,7 @@ export default function PrivacyPage() {
               <div className="text-gray-400">
                 <p className="font-semibold">HG Experts B.V.</p>
                 <p className="mt-2">E-mail: <a href="mailto:info@hgexperts.nl" className="hover:text-yellow-400 transition-colors">info@hgexperts.nl</a></p>
-                <p>Telefoon: <a href="tel:+31852502665" className="hover:text-yellow-400 transition-colors">085 250 2665</a></p>
+                <p>Telefoon: <a href="tel:+31852502665" className="hover:text-yellow-400 transition-colors">+31 (0)85 - 250 2665</a></p>
                 <p className="mt-2">KVK: 95814426</p>
                 <p>BTW: NL867316809B01</p>
                 <p>RSIN: 867316809</p>

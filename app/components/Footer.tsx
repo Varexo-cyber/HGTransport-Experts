@@ -1,17 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, Mail, MapPin, Truck, ArrowRight } from "lucide-react";
+import { Phone, Mail, MapPin, Truck, ArrowRight, Clock } from "lucide-react";
 import Image from "next/image";
 
 const Logo = () => (
   <Link href="/" className="flex items-center gap-3">
-    <div className="relative w-20 h-20">
+    <div className="relative w-28 h-28 sm:w-32 sm:h-32">
       <Image 
         src="/images/logo.png" 
         alt="HG Transport Experts Logo" 
-        width={80} 
-        height={80}
+        width={128} 
+        height={128}
         className="w-full h-full object-contain"
       />
     </div>
@@ -62,7 +62,7 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Logo />
             <p className="text-zinc-400 mt-4 text-sm">
-              Uw betrouwbare partner voor fiets- en autotransport in Nederland en België sinds 2024.
+              Uw betrouwbare partner voor fiets- en autotransport in Nederland en België. Actief in transport sinds 2018.
             </p>
             <div className="mt-3 text-zinc-500 text-xs">
               <p>HG Experts B.V.</p>
@@ -90,17 +90,35 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Portals */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Diensten</h4>
+            <h4 className="text-white font-semibold mb-4">Track & Trace</h4>
             <ul className="space-y-2">
-              {["Fiets Transport", "Auto Transport", "Warehousing"].map((item) => (
-                <li key={item}>
-                  <Link href="/diensten" className="text-zinc-400 hover:text-white transition-colors text-sm">
-                    {item}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <a
+                  href="https://app.routigo.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-400 hover:text-yellow-400 transition-colors text-sm"
+                >
+                  Routigo (klanten)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.easytrans.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-400 hover:text-yellow-400 transition-colors text-sm"
+                >
+                  EasyTrans (B2B)
+                </a>
+              </li>
+              <li>
+                <Link href="/diensten" className="text-zinc-400 hover:text-white transition-colors text-sm">
+                  Onze diensten
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -111,8 +129,17 @@ export default function Footer() {
               <li>
                 <a href="tel:+31852502665" className="flex items-center gap-3 text-zinc-400 text-sm hover:text-yellow-400 transition-colors">
                   <Phone className="w-4 h-4 text-yellow-500" />
-                  085 250 2665
+                  +31 (0)85 - 250 2665
                 </a>
+              </li>
+              <li>
+                <div className="flex items-start gap-3 text-zinc-400 text-sm">
+                  <Clock className="w-4 h-4 text-yellow-500 mt-0.5" />
+                  <div>
+                    <div>Ma-Vr: 08:00 - 18:00</div>
+                    <div className="text-zinc-500 text-xs">Za-Zo: Gesloten</div>
+                  </div>
+                </div>
               </li>
               <li>
                 <a href="mailto:info@hgexperts.nl" className="flex items-center gap-3 text-zinc-400 text-sm hover:text-yellow-400 transition-colors">

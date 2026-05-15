@@ -9,12 +9,12 @@ import Image from "next/image";
 
 const Logo = () => (
   <Link href="/" className="flex items-center gap-3 group">
-    <div className="relative w-20 h-20">
+    <div className="relative w-28 h-28 sm:w-32 sm:h-32">
       <Image 
         src="/images/logo.png" 
         alt="HG Transport Experts Logo" 
-        width={80} 
-        height={80}
+        width={128} 
+        height={128}
         className="w-full h-full object-contain"
         priority
       />

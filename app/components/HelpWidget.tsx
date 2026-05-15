@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     question: "Hoe vraag ik een offerte aan?",
-    answer: "Via het contactformulier, bel 085 250 2665 of stuur een WhatsApp-bericht. Wij reageren zo snel mogelijk."
+    answer: "Via het contactformulier, bel +31 (0)85 - 250 2665 of stuur een WhatsApp-bericht. Wij reageren zo snel mogelijk."
   },
   {
     question: "Is mijn zending verzekerd?",
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     question: "Wat zijn jullie openingstijden?",
-    answer: "Maandag t/m vrijdag 08:00 - 18:00. Zaterdag 09:00 - 13:00."
+    answer: "Maandag t/m vrijdag 08:00 - 18:00. Zaterdag en zondag zijn wij gesloten."
   },
   {
     question: "Wat kost transport?",

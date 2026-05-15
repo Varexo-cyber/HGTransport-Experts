@@ -61,7 +61,7 @@ const ContactInfo = () => {
     {
       icon: Phone,
       title: "Telefoon",
-      details: ["085 250 2665"],
+      details: ["+31 (0)85 - 250 2665"],
       description: "Ma-Vr: 08:00 - 18:00",
       link: "tel:+31852502665",
     },
@@ -75,8 +75,8 @@ const ContactInfo = () => {
     {
       icon: Clock,
       title: "Openingstijden",
-      details: ["Ma-Vr: 08:00 - 18:00", "Za: 09:00 - 13:00"],
-      description: "Zo: Gesloten",
+      details: ["Ma-Vr: 08:00 - 18:00"],
+      description: "Za-Zo: Gesloten",
     },
   ];
 
@@ -371,7 +371,7 @@ const QuickQuote = () => {
         className="inline-flex items-center gap-2 bg-yellow-500 text-zinc-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition-all"
       >
         <Phone className="w-5 h-5" />
-        085 250 2665
+        +31 (0)85 - 250 2665
       </a>
 
       <div className="mt-8 pt-6 border-t border-white/20">
@@ -400,7 +400,7 @@ const FAQSection = () => {
     },
     {
       question: "Hoe kan ik een offerte aanvragen?",
-      answer: "U kunt het contactformulier invullen, ons bellen op 085 250 2665 of een WhatsApp-bericht sturen. Wij reageren zo snel mogelijk met een vrijblijvende offerte.",
+      answer: "U kunt het contactformulier invullen, ons bellen op +31 (0)85 - 250 2665 of een WhatsApp-bericht sturen. Wij reageren zo snel mogelijk met een vrijblijvende offerte.",
     },
     {
       question: "Wat zijn jullie tarieven?",
@@ -408,7 +408,7 @@ const FAQSection = () => {
     },
     {
       question: "Waar zijn jullie bereikbaar?",
-      answer: "U kunt ons bereiken via telefoon (085 250 2665), e-mail (info@hgexperts.nl) of WhatsApp. Wij zijn bereikbaar van maandag t/m vrijdag, 08:00 - 18:00.",
+      answer: "U kunt ons bereiken via telefoon (+31 (0)85 - 250 2665), e-mail (info@hgexperts.nl) of WhatsApp. Wij zijn bereikbaar van maandag t/m vrijdag, 08:00 - 18:00. In het weekend zijn wij gesloten.",
     },
   ];
 
@@ -472,7 +472,7 @@ export default function ContactPage() {
                   href="tel:+31852502665"
                   className="text-yellow-400 font-medium hover:text-yellow-300 transition-colors"
                 >
-                  085 250 2665
+                  +31 (0)85 - 250 2665
                 </a>
               </div>
             </div>

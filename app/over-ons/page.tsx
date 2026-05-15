@@ -39,8 +39,8 @@ const PageHeader = () => {
             Transport met <span className="text-yellow-400">passie</span>
           </h1>
           <p className="text-gray-400 text-base sm:text-lg">
-            Sinds 2024 de betrouwbare partner voor fiets- en autotransport 
-            in Nederland en België.
+            Al sinds 2018 actief in transport. Sinds 2024 onder de naam HG Experts B.V. 
+            uw betrouwbare partner voor fiets- en autotransport in Nederland en België.
           </p>
         </motion.div>
       </div>
@@ -67,16 +67,15 @@ const StorySection = () => {
             </h2>
             <div className="space-y-4 text-gray-400 leading-relaxed">
               <p>
-                HG Experts B.V. begon in 2024 met één simpel idee: transport moet 
-                eenvoudig, betrouwbaar en persoonlijk zijn. Met focus op kwaliteit 
-                en persoonlijke service zijn wij uitgegroeid tot een betrouwbare 
-                logistieke dienstverlener.
+                Onze oprichter Hakki is al sinds 2018 actief in de transportsector. 
+                Met jarenlange ervaring op de weg en een passie voor logistiek werd 
+                in 2024 HG Experts B.V. officieel opgericht.
               </p>
               <p>
                 Onze specialisatie in fiets- en autotransport ontstond uit een 
                 groeiende vraag in de markt. Waar andere transporteurs stopten, 
-                zagen wij kansen om het beter te doen - met meer zorg, betere 
-                verpakking en een persoonlijke aanpak.
+                zagen wij kansen om het beter te doen — met meer zorg en een 
+                persoonlijke aanpak.
               </p>
               <p>
                 Wij verzorgen transport voor diverse klanten in Nederland en België. 
@@ -105,8 +104,8 @@ const StorySection = () => {
             <div className="relative sm:absolute sm:-bottom-6 sm:-left-6 sm:right-6 mt-4 sm:mt-0 bg-zinc-800 rounded-2xl p-4 sm:p-6 shadow-2xl">
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <div className="text-3xl font-bold text-yellow-400">2024</div>
-                  <div className="text-xs text-gray-400">Oprichting</div>
+                  <div className="text-3xl font-bold text-yellow-400">2018</div>
+                  <div className="text-xs text-gray-400">In transport</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-yellow-400">NL</div>

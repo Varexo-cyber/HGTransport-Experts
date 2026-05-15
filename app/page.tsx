@@ -63,7 +63,7 @@ const Hero = () => {
             <span className="px-4 py-1.5 rounded-full bg-yellow-500/10 border border-yellow-400/30 text-yellow-400 text-sm font-medium backdrop-blur-sm">
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
-                Transport Experts sinds 2024
+                Transport sinds 2018
               </span>
             </span>
           </motion.div>
@@ -118,7 +118,7 @@ const Hero = () => {
             {[
               { value: "NL & BE", label: "Actief in" },
               { value: "24/7", label: "Bereikbaar" },
-              { value: "Sinds 2024", label: "Oprichting" },
+              { value: "Sinds 2018", label: "Ervaring" },
             ].map((stat, index) => (
               <div key={index}>
                 <div className="text-2xl sm:text-4xl font-bold text-white">{stat.value}</div>
@@ -364,7 +364,7 @@ const WhyChooseUs = () => {
     {
       icon: TrendingUp,
       title: "Track & Trace",
-      description: "Volg uw zendingen realtime via ons tracking systeem, 24/7 beschikbaar.",
+      description: "Volg uw zending via onze Routigo portal of EasyTrans voor B2B-klanten.",
     },
     {
       icon: Users,
@@ -421,6 +421,80 @@ const WhyChooseUs = () => {
   );
 };
 
+// Track Portals Section
+const TrackPortalsSection = () => {
+  const portals = [
+    {
+      name: "Routigo",
+      audience: "Particuliere klanten",
+      description: "Volg uw zending live via onze Routigo klantenportal. Bekijk status, tijden en updates van uw transport.",
+      url: "https://app.routigo.com",
+      cta: "Volg uw zending",
+    },
+    {
+      name: "EasyTrans",
+      audience: "Zakelijke klanten (B2B)",
+      description: "Speciale B2B-portal voor onze zakelijke partners. Beheer uw zendingen, opdrachten en facturatie op één plek.",
+      url: "https://www.easytrans.com",
+      cta: "Open B2B portal",
+    },
+  ];
+
+  return (
+    <section className="relative py-16 sm:py-32 bg-zinc-800/50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12 sm:mb-16"
+        >
+          <span className="text-yellow-400 font-semibold tracking-wider text-sm uppercase mb-4 block">
+            Klantportalen
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+            Volg uw <span className="text-yellow-400">zending</span>
+          </h2>
+          <p className="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto">
+            Houd uw transport realtime in de gaten via onze beveiligde portalen.
+          </p>
+        </motion.div>
+
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
+          {portals.map((portal, index) => (
+            <motion.a
+              key={index}
+              href={portal.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="group bg-zinc-900/60 rounded-2xl p-6 sm:p-8 border border-white/5 hover:border-yellow-500/40 transition-all hover:scale-[1.02]"
+            >
+              <div className="flex items-start justify-between mb-4">
+                <div className="w-12 h-12 rounded-xl bg-yellow-500/20 flex items-center justify-center">
+                  <TrendingUp className="w-6 h-6 text-yellow-400" />
+                </div>
+                <span className="text-xs uppercase tracking-wider text-yellow-400 bg-yellow-500/10 px-3 py-1 rounded-full">
+                  {portal.audience}
+                </span>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-2">{portal.name}</h3>
+              <p className="text-zinc-400 text-sm mb-6 leading-relaxed">{portal.description}</p>
+              <div className="inline-flex items-center gap-2 text-yellow-400 font-semibold group-hover:gap-3 transition-all">
+                {portal.cta}
+                <ArrowRight className="w-4 h-4" />
+              </div>
+            </motion.a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // Reviews Section (auto-sliding carousel)
 const ReviewsSection = () => {
   const reviews = [
@@ -428,7 +502,7 @@ const ReviewsSection = () => {
       name: "Bram de Wit",
       location: "Amsterdam",
       rating: 5,
-      text: "Mijn racefiets binnen één dag van Amsterdam naar Maastricht laten brengen. Goed verpakt, geen krasje. Top geregeld!",
+      text: "Mijn racefiets binnen één dag van Amsterdam naar Maastricht laten brengen. Goed beschermd vervoerd, geen krasje. Top geregeld!",
     },
     {
       name: "Linda Hofman",
@@ -635,6 +709,7 @@ export default function Home() {
       <Hero />
       <Services />
       <WhyChooseUs />
+      <TrackPortalsSection />
       <ReviewsSection />
       <CTASection />
     </>
